@@ -1,0 +1,145 @@
+@charset "UTF-8";
+.taille-1 {
+  width: 25%; }
+
+.taille-2 {
+  width: 50%; }
+
+.taille-3 {
+  width: 75%; }
+
+.taille-4 {
+  width: 100%; }
+
+.taille-1 {
+  width: 25%; }
+
+.taille-2 {
+  width: 50%; }
+
+.taille-3 {
+  width: 75%; }
+
+.taille-4 {
+  width: 100%; }
+
+/*4. Créez un mixin correspondant au code de la question précédente.*/
+.taille-petit {
+  width: 25%; }
+
+.taille-moyen {
+  width: 50%; }
+
+.taille-grand {
+  width: 75%; }
+
+.taille-enorme {
+  width: 100%; }
+
+.bouton-petite {
+  width: 25%; }
+
+.bouton-standart {
+  width: 50%; }
+
+.bouton-moyenne {
+  width: 75%; }
+
+.bouton-grande {
+  width: 100%; }
+
+.bouton::before {
+  content: "toto"; }
+
+.bouton::after {
+  content: returnLastInArray("tata", "standart", "moyen", "grand"); }
+
+.ville-rio::before {
+  display: block;
+  content: "Rio"; }
+
+.ville-brésil::before {
+  display: block;
+  content: "Brésil"; }
+
+.ville-caracas::before {
+  display: block;
+  content: "Caracas"; }
+
+.ville-bogota::before {
+  display: block;
+  content: "Bogota"; }
+
+.fa-facebook {
+  background: #fa1313;
+  color: white; }
+
+.fa-twitter {
+  background: #a11515;
+  color: white; }
+
+.fa-linkedin {
+  background: #a35f5f;
+  color: white; }
+
+.fa-instagram {
+  background: #ed4040;
+  color: white; }
+
+.fa-facebook {
+  background: #0033FF;
+  color: #FFFFFF; }
+
+.fa-twitter {
+  background: #4EBCFF;
+  color: #FFFFFF; }
+
+.fa-linkedin {
+  background: #3734FF;
+  color: #FFFFFF; }
+
+.fa-instagram {
+  background: #FF007B;
+  color: #FFBD92; }
+
+.fa-pinterest {
+  background: #ff0055;
+  color: #FFFFFF; }
+
+.fa-youtube {
+  background: #FF0000;
+  color: #FFFFFF; }
+
+.fa {
+  font-size: 5rem !important; }
+
+/*13.À l’aide du lien suivant https://www.w3schools.com/howto/howto_css_social_media_buttons.asp
+créez un set d’éléments permettant de tester le code de la question précédente.*/
+.fa-facebook {
+  background: #001466;
+  color: #0033FF; }
+
+.fa-twitter {
+  background: #0070b4;
+  color: #4EBCFF; }
+
+.fa-linkedin {
+  background: #02009a;
+  color: #3734FF; }
+
+.fa-instagram {
+  background: #660031;
+  color: #FF007B; }
+
+.fa-pinterest {
+  background: #660022;
+  color: #ff0055; }
+
+.fa-youtube {
+  background: #660000;
+  color: #FF0000; }
+
+.fa {
+  font-size: 2rem !important; }
+
+/*# sourceMappingURL=style.css.map */

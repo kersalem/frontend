@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>formulaire</title>
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+  </head>
+  <body>
+    <nav>
+      <ul id="menu">
+        <li class="menu-item"><a href="agence_voyage.html">Home</a></li>
+        <li class="menu-item"><a href="services.html" class="ex1" >Services</a>
+          <ul class="sous-menu">
+            <li>Infos</li>
+            <li>Location</li>
+            <li>Assistance</li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="destinations.html" class="ex1">Destinations</a></li>
+        <li class="menu-item"><a href="audio.html" class="ex1">Voyage virtuel:audio</a></li>
+        <li class="menu-item"><a href="video.html" class="ex1">Voyage virtuel: video</a></li>
+        <li class="menu-item"><a href="contact.html" class="ex1">Contact</a></li>
+      </ul>
+    </nav>
+    <br>
+    <section id="contact">
+      <form method="post" action="" class=formulaire>
+
+             <fieldset>
+               <label for="nom">Nom :</label>
+               <input type="text" name="pseudo" id="nom" required
+               placeholder="Taper votre nom"
+               />
+               <label for="prenom">Prénom :</label>
+               <input type="text" name="pseudo" id="prenom"
+               placeholder="Taper votre prénom"
+               />
+
+               <label for="email">Enter your globex.com email:</label>
+               <input type="email" id="email"
+                   size="30" required type="email">
+                   <label for="tel">Téléphone :</label>
+                   <input type="tel" name="pseudo" id="tel"
+                   pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
+                   required />
+
+              <div class="mess">
+                <lael for="msg">Message :</label>
+                <textarea id="msg" name="user_message"></textarea>
+              </div>
+
+                  <div class="button">
+                   <input type="submit" value="Envoyer le formulaire">
+                 </div>
+             </fieldset>
+
+      </form>
+    </section>
+  </body>
+</html>

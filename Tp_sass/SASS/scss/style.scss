@@ -1,0 +1,180 @@
+// Question 1
+//Créer une boucle pour obtenir la série de quatre classes ci-dessous. Le code doit permettre de changer le nombre de classes en modifiant un seul paramètre.
+
+$elements:4;
+@for $i from 1 through $elements {
+  .taille-#{$i} {
+    width: (100% / $elements) * $i;
+  }
+}
+
+// Question 2
+//Créer un mixin correspondant au code de la question précédente
+
+@mixin generer_classes_taille() {
+
+  $elements:4;
+  @for $i from 1 through $elements {
+    .taille-#{$i} {
+      width: (100% / $elements) * $i;
+    }
+  }
+
+}
+@include generer_classes_taille();
+
+
+// Question 3
+//Maintenant, utiliser la même boucle de la question 1 pour obtenir le code suivant. (Astuce: pensez à utiliser les tableaux)
+// $i: 0;
+// $tableau_tailles:"petite", "standart", "moyenne", "grande";
+//   @each $elements in $tableau_tailles {
+//     .taille-#{$elements} {
+//       $i:$i+1;
+//       width: (100% / length($tableau_tailles)) * $i;
+//     }
+//   }
+
+/*4. Créez un mixin correspondant au code de la question précédente.*/
+@mixin generate_classes_taille(){
+  $i:0;
+  $name:"petit","moyen","grand","enorme";
+  @each $elements in $name {
+    .taille-#{$elements} {
+      $i:$i+1;
+      width:(100%/ length($name))* $i;
+    }
+  }
+}
+@include generate_classes_taille();
+
+  //Question 5
+  @mixin tableau_tailles($classe, $liste) {
+  $i: 0;
+
+    @each $element in $liste {
+      .#{$classe}-#{$element} {
+        $i:$i+1;
+        width: (100% / length($liste)) * $i;
+      }
+    }
+  }
+  $tableau_tailles:"petite", "standart", "moyenne", "grande";
+@include tableau_tailles("bouton", $tableau_tailles);
+
+//Question 6
+//Créez une fonction sass permettant de renvoyer la valeur de la première entrée d’un tableau et testez-la sur votre tableau
+
+@function returnFirstInArray($array){
+  @return nth($array,1);
+}
+$tableau_tailles:"toto", "standart", "moyen", "grand";
+.bouton::before{
+  content:returnFirstInArray($tableau_tailles);
+}
+
+// Question 7
+
+@function returnLasttInArray($array){
+  @return nth($array,length($array));
+}
+$tableau_tailles:"tata", "standart", "moyen", "grand";
+.bouton::after{
+  content:returnLastInArray($tableau_tailles);
+}
+
+// question 8
+//Créez un tableau associatif (map) intitulée $destinations contenant plusieurs valeurs.
+
+$destinations: (
+rio: "Rio",
+brésil: "Brésil",
+caracas: "Caracas",
+bogota: "Bogota"
+);
+
+@each $destination in $destinations {
+  .ville-#{nth($destination, 1)}::before {
+    display: block;
+    content:"#{nth($destination, 2)}";
+  }
+}
+
+// Question 9
+// Utilisez une boucle permettant de créer une série de classes css pour chacune des destinations sous la forme suivante
+$destinations: (argentine: "Argentine", brésil: "Brésil", paris: Paris, namibie: "Namibie");
+
+@mixin ajouterText($liste, $position:'before', $prefix:'classe'){
+  @each $destination in $destinations {
+    .ville-#{nth($destination, 1)}::before {
+      display: block;
+      content:"#{nth($destination, 2)}";
+    }
+  }
+}
+
+
+// Question 10
+//Créez un mixin permettant de reproduire le code précédent de manière générique avec une option permettant d’insérer le texte avant ou après
+$social: (facebook: "#fa1313", twitter: "#a11515", linkedin: "#a35f5f", instagram: "#ed4040");
+
+@mixin ajouterTexte($liste, $prefix){
+  @each $element in $liste {
+     .#{$prefix}-#{nth($element,1)} {
+        background: #{nth($element, 2)};
+        color: white;
+     }
+  }
+}
+@include ajouterTexte($social, 'fa');
+
+//Question 11
+// Créez un tableau associatif (map) intitulé $social et contenant :•Une liste de réseau sociaux : facebook, twitter, linkedin, instagram, pinterest et youtube.•Une couleur différente pour chaque réseau social.
+$reseaux: (
+  facebook: (#0033FF, #FFFFFF),
+  twitter: (#4EBCFF, #FFFFFF),
+  linkedin: (#3734FF, #FFFFFF),
+  instagram: (#FF007B, #FFBD92),
+  pinterest: (#ff0055, #FFFFFF),
+  youtube: (#FF0000, #FFFFFF)
+);
+
+//Question 12
+@mixin displayContent($array, $class:"class") {
+ @each $key, $value in $array {
+   .#{$class}-#{$key} {
+     background: #{nth($value,1)};
+     color: #{nth($value,2)};
+   }
+ }
+}
+@include displayContent($reseaux,"fa");
+.fa {
+ font-size: 5rem !important;
+}
+
+/*13.À l’aide du lien suivant https://www.w3schools.com/howto/howto_css_social_media_buttons.asp
+créez un set d’éléments permettant de tester le code de la question précédente.*/
+
+
+
+// Question 14
+@mixin displayContent($array, $eclaircissementBg: 1, $mode:"dark", $class:"class") {
+  @each $key, $value in $array {
+    @if($mode == "dark") {
+      .#{$class}-#{$key} {
+        background: #{darken(nth($value, 1), $eclaircissementBg)};
+        color: #{nth($value,1)};
+      }
+    } @else {
+      .#{$class}-#{$key} {
+        background: #{lighten(nth($value, 1), $eclaircissementBg)};
+        color: #{nth($value,1)};
+      }
+    }
+  }
+}
+@include displayContent($reseaux, 30%, "dark", "fa");
+.fa {
+  font-size: 2rem !important;
+}
