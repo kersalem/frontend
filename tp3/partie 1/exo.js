@@ -8,7 +8,7 @@
 //       console.log('random', random);
 //       console.log('compteur or while', compteur);
 //
-//         while(result != random) { // || compteur <4
+//         while(result != random)<input type="button" value="Découvrir"> { // || compteur <4
 //
 //           if(result > random) {
 //             compteur+=1;
@@ -97,43 +97,41 @@
 // }
 
 /////////////////////////////////////////////:
-// var Congo = ["kinshasa", "Goma", "Butembo", "bukavu"];
-// var Italie = ["Rome", "Milan", "Florence", "Venise"];
-// var Irlande = ["Dublin", "Cork", "Galway", "Limerick"];
-// var Espagne = ["Barcelone", "Valencia", "Albacet", "Cadix"];
-//
-// var input2 = document.getElementById("recuperationChamp2").value;
-//
-//
-// $(document).ready(function(){
-//
-//   $("#myBtn2").click(function(){
-//     var resultGlobal = [];
-//     if(Congo.includes(input2)){
-//       for(let i in Congo) {
-//            resultGlobal += "<li>" + Congo[i] + "</li>";
-//           //document.getElementById("villes").style.backgroundColor = "#FF0000";
-//
-//       }
-//       }
-//       $("#villes").html(resultGlobal);
-//       console.log("resultGlobal", resultGlobal);
+var Congo = ["kinshasa", "Goma", "Butembo", "bukavu"];
+var Italie = ["Rome", "Milan", "Florence", "Venise"];
+var Irlande = ["Dublin", "Cork", "Galway", "Limerick"];
+var Espagne = ["Barcelone", "Valencia", "Albacet", "Cadix"];
 
+var input2 = document.getElementById("recuperationChamp2").value;
+
+
+$(document).ready(function(){
+
+  $("#myBtn2").click(function(){
+    var resultGlobal = [];
+    if(Congo.includes(input2)){
+      for(let i in Congo) {
+           resultGlobal += "<li>" + Congo[i] + "</li>";
+          //document.getElementById("villes").style.backgroundColor = "#FF0000";
+
+
+      }
+      $("#villes").html(resultGlobal);
+      console.log("resultGlobal", resultGlobal);
 
   //alert("resultGlobal");
+    } else if (Italie.includes(input)) {
 
+    } else if (Irlande.includes(input)) {
 
-    // } else if (Italie.includes(input)) {
-    //
-    // } else if (Irlande.includes(input)) {
-    //
-    // } else if (Espagne.includes(input)) {
-    //
-    // } else {
-    //   event.preventDefault();
-    // }
-  });
-});
+    } else if (Espagne.includes(input)) {
+
+    } else {
+      event.preventDefault();
+    }
+ });
+ });
+
 //////////////////////////////
 
 // var villes = document.getElementsById("villes").value;
@@ -171,3 +169,21 @@
 // }
 //
 // }
+
+
+
+
+
+// $(document).ready(function() {
+//   $("#commentaireBtn").click(function(){
+//
+//     var nvoText = $('commentaireInput').val();
+//     console.log('nvoText', nvoText);
+//
+//     //$('test').html();
+//     //$("#villes").html(resultGlobal);
+//     //console.log('inputCommentaire', inputCommentaire);
+//     //console.log('test', test);
+//
+//   })
+// })

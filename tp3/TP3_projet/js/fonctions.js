@@ -1,6 +1,3 @@
-//alert('toto');
-
-
 var array = [
   {
     nom : "Espagne",
@@ -31,27 +28,85 @@ var resultat="";
 array.forEach(function(element){
   //console.log('element.nom', element.nom);
   resultat = resultat + "<tr>";
-  resultat =  resultat + "<td>" + element.nom + "</td>";
-  resultat =  resultat + "<td><img src=" + element.source + "/></td>";
-  resultat =  resultat + "<td class='test'>" + element.commentaire + "</td>";
-  resultat =  resultat + "<td>" + element.prix + "</td>";
-  resultat =  resultat + "<td>" + element.offre + "</td>";
-  resultat =  resultat + '<td><input type="button" value="Découvrir"></td>';
-  resultat =  resultat + '<td><input type="button" id="button" value="Modifier"></td>';
+  resultat = resultat + "<td>" + element.nom + "</td>";
+  resultat = resultat + "<td><img src=" + element.source + "/></td>";
+  resultat = resultat + "<td id='test'>" + element.commentaire + "</td>";
+  resultat = resultat + "<td>" + element.prix + "</td>";
+  resultat = resultat + "<td>" + element.offre + "</td>";
+  resultat = resultat + '<td><input type="button" value="Découvrir"></td>';
+  resultat = resultat + '<td><input type="button" id="button" value="Modifier"></td>';
   //console.log('element.source', element.source);
 });
+
 document.getElementById("tbody").innerHTML = resultat;
 
+/////////////////////////////////////
+
+var arrayMenu = [
+  {
+    item : "Home",
+    link : "agence_voyage.html",
+  },
+  {
+    item : "Services",
+    link : "services.html",
+  },
+  {
+    item : "Destinations",
+    link : "destinations.html",
+  },
+  {
+    item : "Voyage audio",
+    link : "audio.html",
+  },
+  {
+    item : "Voyage visuel",
+    link : "video.html",
+  },
+  {
+    item : "Contact",
+    link : "contact.html",
+  }
+];
+
+var items = "";
+arrayMenu.forEach(function(elementMenu){
+  console.log("elementMenu.link", elementMenu.link);
+  items += "<li class='menu-item'><a href=" + elementMenu.link + ">" + elementMenu.item + "</a></li>";
+  console.log("items", items);
+})
+
+var menu = document.getElementById("menu").innerHTML = items;
+console.log('menu', menu);
+/////////////////////////
+
 document.getElementById("button").addEventListener("click", modifierCommentaire);
-
 function modifierCommentaire(e) {
-  console.log(e);
-  console.log(e.target.parentNode.parentNode)
-  inputCommentaire = document.getElementById("commentaire").value;
-  console.log('inputCommentaire', inputCommentaire);
 
+  // console.log("e", e);
+  // console.log("target0", e.target);
+  // console.log("target1", e.target.parentNode);
+  // console.log("target2", e.target.parentNode.parentNode);
 
-  console.log('test', test);
+  var nvoCOmmentaire = document.getElementById("commentaire").value;
+  document.getElementById("test").innerHTML = nvoCOmmentaire;
+  //console.log('inputCommentaire', inputCommentaire);
+
+  console.log('changerCommentaire', changerCommentaire);
+
+// $(document).ready(function() {
+//   $("#commentaireBtn").click(function(){
+//
+//     var nvoText = $('commentaireInput').val();
+//     console.log('nvoText', nvoText);
+//
+//     //$('test').html();
+//     //$("#villes").html(resultGlobal);
+//     //console.log('inputCommentaire', inputCommentaire);
+//     //console.log('test', test);
+//
+//   })
+// })
 
 }
 
