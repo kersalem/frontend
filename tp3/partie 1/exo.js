@@ -97,27 +97,27 @@
 // }
 
 /////////////////////////////////////////////:
-var Congo = ["kinshasa", "Goma", "Butembo", "bukavu"];
-var Italie = ["Rome", "Milan", "Florence", "Venise"];
-var Irlande = ["Dublin", "Cork", "Galway", "Limerick"];
-var Espagne = ["Barcelone", "Valencia", "Albacet", "Cadix"];
-
-var input2 = document.getElementById("recuperationChamp2").value;
-
-
-$(document).ready(function(){
-
-  $("#myBtn2").click(function(){
-    var resultGlobal = [];
-    if(Congo.includes(input2)){
-      for(let i in Congo) {
-           resultGlobal += "<li>" + Congo[i] + "</li>";
-          //document.getElementById("villes").style.backgroundColor = "#FF0000";
-
-      }
-      }
-      $("#villes").html(resultGlobal);
-      console.log("resultGlobal", resultGlobal);
+// var Congo = ["kinshasa", "Goma", "Butembo", "bukavu"];
+// var Italie = ["Rome", "Milan", "Florence", "Venise"];
+// var Irlande = ["Dublin", "Cork", "Galway", "Limerick"];
+// var Espagne = ["Barcelone", "Valencia", "Albacet", "Cadix"];
+//
+// var input2 = document.getElementById("recuperationChamp2").value;
+//
+//
+// $(document).ready(function(){
+//
+//   $("#myBtn2").click(function(){
+//     var resultGlobal = [];
+//     if(Congo.includes(input2)){
+//       for(let i in Congo) {
+//            resultGlobal += "<li>" + Congo[i] + "</li>";
+//           //document.getElementById("villes").style.backgroundColor = "#FF0000";
+//
+//       }
+//       }
+//       $("#villes").html(resultGlobal);
+//       console.log("resultGlobal", resultGlobal);
 
 
   //alert("resultGlobal");
