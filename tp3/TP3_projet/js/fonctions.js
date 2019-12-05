@@ -28,7 +28,7 @@ function chargementPage() {
 
   var resultat="";
 
-  array.forEach(function(element){
+  array.forEach(function(element, index){
     //console.log('element.nom', element.nom);
     resultat = resultat + "<tr>";
     resultat = resultat + "<td>" + element.nom + "</td>";
@@ -37,13 +37,36 @@ function chargementPage() {
     resultat = resultat + "<td>" + element.prix + "</td>";
     resultat = resultat + "<td>" + element.offre + "</td>";
     resultat = resultat + '<td><input type="button" value="Découvrir"></td>';
-    resultat = resultat + '<td><input type="button" id="button" value="Modifier"></td>';
-    //console.log('element.source', element.source);
+    resultat = resultat + '<td><button id="button" value='+ index +'>Modifier</button></td>';
   });
-
-  console.log('resultat', resultat);
   document.getElementById("tbody").innerHTML = resultat;
 
+//////////////////////////////////////////////
+
+    document.getElementById("button").addEventListener("click", modifierCommentaire);
+    function modifierCommentaire() {
+
+      var nvoCOmmentaire = document.getElementById("commentaire").value;
+      document.getElementById("test").innerHTML = nvoCOmmentaire;
+      //console.log('inputCommentaire', inputCommentaire);
+
+      //console.log('changerCommentaire', changerCommentaire)
+
+    }
+
+
+  ///////////////////////////////////:
+    var items = "";
+    arrayMenu.forEach(function(elementMenu){
+      //console.log("elementMenu.link", elementMenu.link);
+      items += "<li class='menu-item'><a href=" + elementMenu.link + ">" + elementMenu.item + "</a></li>";
+      //console.log("items", items);
+    })
+
+    var menu = document.getElementById("menu").innerHTML = items;
+    //console.log('menu', menu);
+
+  }
 
   /////////////////////////////////////
 
@@ -73,48 +96,3 @@ function chargementPage() {
       link : "contact.html",
     }
   ];
-
-  var items = "";
-  arrayMenu.forEach(function(elementMenu){
-    console.log("elementMenu.link", elementMenu.link);
-    items += "<li class='menu-item'><a href=" + elementMenu.link + ">" + elementMenu.item + "</a></li>";
-    console.log("items", items);
-  })
-
-  var menu = document.getElementById("menu").innerHTML = items;
-  console.log('menu', menu);
-  /////////////////////////
-
-  document.getElementById("button").addEventListener("click", modifierCommentaire);
-  function modifierCommentaire(e) {
-
-    // console.log("e", e);
-    // console.log("target0", e.target);
-    // console.log("target1", e.target.parentNode);
-    // console.log("target2", e.target.parentNode.parentNode);
-
-    var nvoCOmmentaire = document.getElementById("commentaire").value;
-    document.getElementById("test").innerHTML = nvoCOmmentaire;
-    //console.log('inputCommentaire', inputCommentaire);
-
-    console.log('changerCommentaire', changerCommentaire);
-
-  // $(document).ready(function() {
-  //   $("#commentaireBtn").click(function(){
-  //
-  //     var nvoText = $('commentaireInput').val();
-  //     console.log('nvoText', nvoText);
-  //
-  //     //$('test').html();
-  //     //$("#villes").html(resultGlobal);
-  //     //console.log('inputCommentaire', inputCommentaire);
-  //     //console.log('test', test);
-  //
-  //   })
-  // })
-
-  }
-
-  //ModifierCommentaire();
-
-}
