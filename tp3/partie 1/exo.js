@@ -67,7 +67,7 @@
 // var Italie = ["Rome", "Milan", "Florence", "Venise"];
 // var Irlande = ["Dublin", "Cork", "Galway", "Limerick"];
 // var Espagne = ["Barcelone", "Valencia", "Albacet", "Cadix"];
-//
+
 // function distribAction() {
 //   document.getElementById("myBtn2").addEventListener("click", promptPays);
 // }
@@ -97,40 +97,53 @@
 // }
 
 /////////////////////////////////////////////:
+
+// window.addEventListener("load",distribAction);
+// function distribAction() {
+//   $("myBtn2").click(promptPays);
+// }
+
 var Congo = ["kinshasa", "Goma", "Butembo", "bukavu"];
 var Italie = ["Rome", "Milan", "Florence", "Venise"];
 var Irlande = ["Dublin", "Cork", "Galway", "Limerick"];
-var Espagne = ["Barcelone", "Valencia", "Albacet", "Cadix"];
+var Espagne = ["Malaga", "Valencia", "Albacete", "Cadix"];
 
-var input2 = document.getElementById("recuperationChamp2").value;
+var input2 = $("#recuperationChamp2").val();
 
+var resultGlobal = [];
 
 $(document).ready(function(){
-
   $("#myBtn2").click(function(){
-    var resultGlobal = [];
+    ///////////////////////////
     if(Congo.includes(input2)){
-      for(let i in Congo) {
-           resultGlobal += "<li>" + Congo[i] + "</li>";
-          //document.getElementById("villes").style.backgroundColor = "#FF0000";
+        afficheListVilles(Congo);
 
+    } else if (Italie.includes(input2)) {
+        afficheListVilles(Italie);
 
-      }
-      $("#villes").html(resultGlobal);
-      console.log("resultGlobal", resultGlobal);
+    } else if (Irlande.includes(input2)) {
+        afficheListVilles(Irlande);
 
-  //alert("resultGlobal");
-    } else if (Italie.includes(input)) {
-
-    } else if (Irlande.includes(input)) {
-
-    } else if (Espagne.includes(input)) {
+    } else if (Espagne.includes(input2)) {
+        afficheListVilles(Espagne);
 
     } else {
       event.preventDefault();
     }
+    ////////////////////////////////////////////
  });
- });
+});
+
+ function afficheListVilles(pays){
+   for(let i in pays) {
+       console.log("tyest", input2 != pays.includes(input2));
+       resultGlobal += "<li>" + pays[i] + "</li>";
+      // var resultSansVilleSaisie = resultGlobal.filter(villeSaisie => villeSaisie == input2);
+      // console.log('resultSansVilleSaisie', resultSansVilleSaisie);
+     }
+
+   $("#villes").html(resultGlobal);
+ }
 
 //////////////////////////////
 
@@ -169,9 +182,6 @@ $(document).ready(function(){
 // }
 //
 // }
-
-
-
 
 
 // $(document).ready(function() {
