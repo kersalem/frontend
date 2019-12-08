@@ -1,4 +1,9 @@
 window.addEventListener("load",chargementPage);
+/////suppression ligne
+function deleteRow(buttonSuppr){
+  var row = buttonSuppr.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
 
 function chargementPage() {
   var array = [
@@ -28,32 +33,53 @@ function chargementPage() {
 
   var resultat="";
 
-  array.forEach(function(element, index){
-    //console.log('element.nom', element.nom);
-    resultat = resultat + "<tr>";
-    resultat = resultat + "<td>" + element.nom + "</td>";
-    resultat = resultat + "<td><img src=" + element.source + "/></td>";
-    resultat = resultat + "<td id='test'>" + element.commentaire + "</td>";
-    resultat = resultat + "<td>" + element.prix + "</td>";
-    resultat = resultat + "<td>" + element.offre + "</td>";
-    resultat = resultat + '<td><input type="button" value="Découvrir"></td>';
-    resultat = resultat + '<td><button id="button" value='+ index +'>Modifier</button></td>';
-  });
-  document.getElementById("tbody").innerHTML = resultat;
+    $.each(array, function(index, element){
+      resultat = resultat + "<tr>";
+      resultat = resultat + "<td>" + element.nom + "</td>";
+      resultat = resultat + "<td><img src=" + element.source + "/></td>";
+      resultat = resultat + "<td id=test"+index+">" + element.commentaire + "</td>";
+      resultat = resultat + "<td>" + element.prix + "</td>";
+      resultat = resultat + "<td>" + element.offre + "</td>";
+      resultat = resultat + '<td><input type="button" value="Découvrir"></td>';
+      resultat = resultat + '<td><button id="button'+index+'">Modifier</button></td>';
+      // resultat = resultat + '<td><button id="buttonSuppr" onclick="deleteRow(this)">Supprimer</button></td>';
+      resultat = resultat + "<td><input type='button' id='buttonSuppr' onclick='deleteRow(this)' value='Supprimer'/></td>";
 
-//////////////////////////////////////////////
+    });
+    $('#tbody').html(resultat);
 
-    document.getElementById("button").addEventListener("click", modifierCommentaire);
-    function modifierCommentaire() {
+    /////insertion ligne
+  //   function addRow() {
+  //     $( "#target" ).submit(function( event ) {
+  //
+  //       event.preventDefault();
+  //
+  //       var destination = jQuery(#destination).val();
+  //       var source = jQuery(#source).val();
+  //       var commentaire = jQuery(#commentaire).val();
+  //       var prix = jQuery(#prix).val();
+  //       var prix = jQuery(#prix).val();
+  //
+  //       alert( "Handler for .submit() called." );
+  // });
+//});
 
-      var nvoCOmmentaire = document.getElementById("commentaire").value;
-      document.getElementById("test").innerHTML = nvoCOmmentaire;
-      //console.log('inputCommentaire', inputCommentaire);
+    // array.push().append(<tr>
+    //   <td>' + destination +'</td>
+    //   <td>' + source +'</td>
+    //   <td>' + commentaire +'</td>
+    //   <td>' + prix +'</td>
+    //   <td>' + offre +'</td>
+    //   </tr>);
 
-      //console.log('changerCommentaire', changerCommentaire)
 
-    }
 
+    array.forEach(function(element, index){
+        document.getElementById("button"+index).addEventListener("click", function(event){
+            var saisie= document.getElementById("commentaire").value;
+            document.getElementById("test"+index).innerHTML = saisie;
+      });
+    });
 
   ///////////////////////////////////:
     var items = "";
