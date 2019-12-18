@@ -1,4 +1,5 @@
 window.addEventListener("load",chargementPage);
+
 /////suppression ligne
 function deleteRow(buttonSuppr){
   var row = buttonSuppr.parentNode.parentNode;
@@ -6,6 +7,10 @@ function deleteRow(buttonSuppr){
 }
 
 function chargementPage() {
+card();
+}
+
+function card(){
   var array = [
     {
       nom : "Espagne",
@@ -30,71 +35,63 @@ function chargementPage() {
     }
   ];
 
+ array.forEach(element => {
+      $("#tbody").append(
+      `<div>
+      <div>${element.nom}</div>
+      <div><img src=${element.source}/></div>
+      <div>${element.commentaire}</div>
+      <div>${element.prix}</div>
+      <div>${element.offre}</div>
+      </div>`)
+    })
+}
+    // resultat = resultat + '<td><button id="buttonSuppr" onclick="deleteRow(this)">Supprimer</button></td>';
+    // <div><input type="button" value="Découvrir"></div>
+    // <div><button id="button">Modifier</button></div>
+    // <div><input type="button" id="buttonSuppr" onclick="deleteRow(this)" value="Supprimer" /></div>
 
-  var resultat="";
+    //insertion ligne
+//     function addRow() {
+//       $( "#target" ).submit(function( event ) {
+//
+//         event.preventDefault();
+//
+//         var destination = $("#destination").val();
+//         var commentaire = $("#commentaire").val();
+//         var prix = $("#prix").val();
+//         var offre = $("#offre").val();
+//
+//         alert( "Handler for .submit() called." );
+//   });
+// });
 
-    $.each(array, function(index, element){
-      resultat = resultat + "<tr>";
-      resultat = resultat + "<td>" + element.nom + "</td>";
-      resultat = resultat + "<td><img src=" + element.source + "/></td>";
-      resultat = resultat + "<td id=test"+index+">" + element.commentaire + "</td>";
-      resultat = resultat + "<td>" + element.prix + "</td>";
-      resultat = resultat + "<td>" + element.offre + "</td>";
-      resultat = resultat + '<td><input type="button" value="Découvrir"></td>';
-      resultat = resultat + '<td><button id="button'+index+'">Modifier</button></td>';
-      // resultat = resultat + '<td><button id="buttonSuppr" onclick="deleteRow(this)">Supprimer</button></td>';
-      resultat = resultat + "<td><input type='button' id='buttonSuppr' onclick='deleteRow(this)' value='Supprimer'/></td>";
-
-    });
-    $('#tbody').html(resultat);
-
-    /////insertion ligne
-  //   function addRow() {
-  //     $( "#target" ).submit(function( event ) {
-  //
-  //       event.preventDefault();
-  //
-  //       var destination = jQuery(#destination).val();
-  //       var source = jQuery(#source).val();
-  //       var commentaire = jQuery(#commentaire).val();
-  //       var prix = jQuery(#prix).val();
-  //       var prix = jQuery(#prix).val();
-  //
-  //       alert( "Handler for .submit() called." );
-  // });
-//});
-
-    // array.push().append(<tr>
-    //   <td>' + destination +'</td>
-    //   <td>' + source +'</td>
-    //   <td>' + commentaire +'</td>
-    //   <td>' + prix +'</td>
-    //   <td>' + offre +'</td>
-    //   </tr>);
+    // array.push().append(`<tr>
+    //   <td>${destination}</td>
+    //   <td>${source}</td>
+    //   <td>${commentaire}</td>
+    //   <td>${prix}</td>
+    //   <td>${offre}</td>
+    //   </tr>`);
 
 
+//     array.forEach(function(element, index){
+//         document.getElementById("button"+index).addEventListener("click", function(event){
+//             var saisie= document.getElementById("commentaire").value;
+//             document.getElementById("test"+index).innerHTML = saisie;
+//       });
+//     });
 
-    array.forEach(function(element, index){
-        document.getElementById("button"+index).addEventListener("click", function(event){
-            var saisie= document.getElementById("commentaire").value;
-            document.getElementById("test"+index).innerHTML = saisie;
-      });
-    });
-
-  ///////////////////////////////////:
+  ///////////////////////////////////Affichage menu
     var items = "";
     arrayMenu.forEach(function(elementMenu){
-      //console.log("elementMenu.link", elementMenu.link);
       items += "<li class='menu-item'><a href=" + elementMenu.link + ">" + elementMenu.item + "</a></li>";
-      //console.log("items", items);
     })
 
     var menu = document.getElementById("menu").innerHTML = items;
-    //console.log('menu', menu);
-
   }
 
-  /////////////////////////////////////
+  ///////////////////////////////////// Contenu Menu
 
   var arrayMenu = [
     {
