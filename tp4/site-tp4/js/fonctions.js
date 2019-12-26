@@ -93,29 +93,29 @@ function card(){
 
   ///////////////////////////////////// Contenu Menu
 
-  var arrayMenu = [
-    {
-      item : "Home",
-      link : "agence_voyage.html",
-    },
-    {
-      item : "Services",
-      link : "services.html",
-    },
-    {
-      item : "Destinations",
-      link : "destinations.html",
-    },
-    {
-      item : "Voyage audio",
-      link : "audio.html",
-    },
-    {
-      item : "Voyage visuel",
-      link : "video.html",
-    },
-    {
-      item : "Contact",
-      link : "contact.html",
-    }
-  ];
+  // var arrayMenu = [
+  //   {
+  //     item : "Home",
+  //     link : "agence_voyage.html",
+  //   },
+  //   {
+  //     item : "Services",
+  //     link : "services.html",
+  //   },
+  //   {
+  //     item : "Destinations",
+  //     link : "destinations.html",
+  //   },
+  //   {
+  //     item : "Voyage audio",
+  //     link : "audio.html",
+  //   },
+  //   {
+  //     item : "Voyage visuel",
+  //     link : "video.html",
+  //   },
+  //   {
+  //     item : "Contact",
+  //     link : "contact.html",
+  //   }
+  // ];
