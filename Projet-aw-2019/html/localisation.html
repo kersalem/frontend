@@ -46,17 +46,156 @@
         map = new google.maps.Map(document.getElementById('map'), {
           //center: {lat: -34.397, lng: 150.644},
 				center: new google.maps.LatLng(lat, lon),
-				zoom: 11,
-					mapTypeId: google.maps.MapTypeId.ROADMAP,
-					mapTypeControl: true,
-					scrollwheel: false,
-					mapTypeControlOptions: {
-						style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
-					},
-					navigationControl: true,
-					navigationControlOptions: {
-						style: google.maps.NavigationControlStyle.ZOOM_PAN
-					}
+				zoom: 5,
+
+        // Snazzy maps custom color
+        styles: [
+    {
+        "featureType": "all",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#202c3e"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "gamma": 0.01
+            },
+            {
+                "lightness": 20
+            },
+            {
+                "weight": "1.39"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "weight": "0.96"
+            },
+            {
+                "saturation": "9"
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 30
+            },
+            {
+                "saturation": "9"
+            },
+            {
+                "color": "#29446b"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "saturation": 20
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 20
+            },
+            {
+                "saturation": -20
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 10
+            },
+            {
+                "saturation": -30
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#193a55"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "saturation": 25
+            },
+            {
+                "lightness": 25
+            },
+            {
+                "weight": "0.01"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "lightness": -20
+            }
+        ]
+    }
+],
+					// mapTypeId: google.maps.MapTypeId.ROADMAP,
+					// mapTypeControl: true,
+					// scrollwheel: false,
+					// mapTypeControlOptions: {
+					// 	style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+					// },
+					// navigationControl: true,
+					// navigationControlOptions: {
+					// 	style: google.maps.NavigationControlStyle.ZOOM_PAN
+					// }
         });
 
 // Parcourir liste villes
@@ -66,6 +205,8 @@ for(ville in villes) {
 		// Définir sa position (syntaxe json)
 		position: {lat: villes[ville].lat, lng: villes[ville].lon},
 		title:ville,
+    // icon:new google.maps.MarkerImage('maps/google-marker/icon.png'),
+    title: "Locronan - Rue du Prieuré",
 		// Définir à quelle carte il est ajouté
 		map: map
 	});
