@@ -189,3 +189,25 @@ img {
   height: 80%;
   z-index:5;
 }
+
+.header {
+  width: 100%;
+  height: 20px;
+  margin:0;
+  padding:2px;
+  background-color: tomato;
+  color:white;
+  font-size: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bodyContent{
+  padding:2px;
+
+}
+
+.gm-style .gm-style-iw-c{
+  padding: 0;
+}

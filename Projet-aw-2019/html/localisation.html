@@ -64,24 +64,31 @@
 
                 map.setCenter(marker.getPosition());
                 //console.log('lat = ', name);
-                //var content = "TOTO: " + name + " !"
-
                 var infowindow = new google.maps.InfoWindow();
-                // google.maps.AddListener(marker, 'click', function (map, marker) {
-                //     infowindow.setContent(content)
-                //     infowindow.open(map, marker)
-                // });
 
-                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                var content = '<div id="content">'+
+                  '<div id="siteNotice">'+
+                  '</div>'+
+                  '<div class="header">'+
+                  '<h1 id="firstHeading" class="firstHeading">'+ name + '</h1>'+
+                  '</div>'+
+                  '<div id="bodyContent">'+
+                  '<p><b>Latitude : </b>'+ lat + '</p>'+
+                  '<p><b>Longitude :</b>'+ lng + '</p>'+
+                  '</p>'+
+                  '</div>'+
+                  '</div>';
+
+
+                google.maps.event.addListener(marker, 'click', (function(marker, content) {
                 return function() {
-                infowindow.setContent(cities[i][0]);
+                infowindow.setContent(content);
+
                 infowindow.open(map, marker);
                 }
-                })(marker, i));
+              })(marker, content));
             }
         }
-
-          //console.log('cities', cities)
         }
   </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4KfDVFyBkAiw4WWWG-9NuGS04vghxXB4&callback=initMap"
