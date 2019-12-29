@@ -6,24 +6,74 @@
     <meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="../css/mystyle.css">
   </head>
+
 	<nav>
 		<ul id="menu">
 			<li class="menu-item"><a href="agence_voyage.html">Home</a></li>
-			<li class="menu-item" id="currentMenu"><a href="localisation.html" class="ex1">Services</a>
-				<ul class="sous-menu">
-					<li><a href="localisation.html">Location</a></li>
-					<li><a href="information.html">Information</a></li>
-					<li><a href="assistance.html">Assistance</a></li>
-				</ul>
-			</li>
+			<li class="menu-item" id="currentMenu"><a href="localisation.html" class="ex1">Services</a></li>
 			<li class="menu-item"><a href="destinations.html" class="ex1">Destinations</a></li>
 			<li class="menu-item"><a href="audio.html" class="ex1">Voyage virtuel:audio</a></li>
 			<li class="menu-item"><a href="video.html" class="ex1">Voyage virtuel: video</a></li>
 			<li class="menu-item"><a href="contact.html" class="ex1">Contact</a></li>
 		</ul>
 	</nav>
-  <!-- <body onload="initMap()"> -->
-    <div id="map"></div>
+  <body onload="initMap()">
+
+    <div id="map">Localisation :</div>
+    <div id="infos">
+      <h3>Informations</h3>
+          <div class="infosContent">
+            <div>Ville : Brest</div>
+            <div>Latitude : 48,448</div>
+            <div>Longitude : -4,4156</div>
+            <div>Type : sucursale</div>
+            <div>Aéroport : Brest Bretagne</div>
+            <div>2CP : 9490 Guipavas</div>
+          </div>
+      <div class="infosContent">
+        <div>Ville : Brest</div>
+        <div>Latitude : 48,448</div>
+        <div>Longitude : -4,4156</div>
+        <div>Type : sucursale</div>
+        <div>Aéroport : Brest Bretagne</div>
+        <div>2CP : 9490 Guipavas</div>
+      </div>
+      <div class="infosContent">
+        <div>Ville : Brest</div>
+        <div>Latitude : 48,448</div>
+        <div>Longitude : -4,4156</div>
+        <div>Type : sucursale</div>
+        <div>Aéroport : Brest Bretagne</div>
+        <div>2CP : 9490 Guipavas</div>
+      </div>
+    </div>
+    <div id="infos">
+      <h3>Assistance</h3>
+          <div class="infosContent">
+            <div>Ville : Brest</div>
+            <div>Latitude : 48,448</div>
+            <div>Longitude : -4,4156</div>
+            <div>Type : sucursale</div>
+            <div>Aéroport : Brest Bretagne</div>
+            <div>2CP : 9490 Guipavas</div>
+          </div>
+      <div class="infosContent">
+        <div>Ville : Brest</div>
+        <div>Latitude : 48,448</div>
+        <div>Longitude : -4,4156</div>
+        <div>Type : sucursale</div>
+        <div>Aéroport : Brest Bretagne</div>
+        <div>2CP : 9490 Guipavas</div>
+      </div>
+      <div class="infosContent">
+        <div>Ville : Brest</div>
+        <div>Latitude : 48,448</div>
+        <div>Longitude : -4,4156</div>
+        <div>Type : sucursale</div>
+        <div>Aéroport : Brest Bretagne</div>
+        <div>2CP : 9490 Guipavas</div>
+      </div>
+    </div>
     <script>
     		var cities = [
           ["Paris", 48.852969, 2.349903],
@@ -32,10 +82,10 @@
     			["Bayonne", 43.500, -1.467],
           ["Brest",48,448, -4,4156, "sucursale", "Aéroport Brest Bretagne", "29490 Guipavas"],
           ["Nice", 43,6597, 7,2148, "sucursale", "Aéroport Nice Côte d'Azur", "Rue Costes et Bellonte, 06206 Nice"],
-          // ["Lyon", 45,7234, -1.467, "sucursale", "Aéroport Lyon-Saint Exupéry", "69125 Colombier-Saugnieu"],
-          // ["Lyon", 43.500, -1.467, "sucursale", "Linea Voyages", "64 rue Sala 69000 Lyon"],
-          // ["Lyon", 43.500, -1.467, "sucursale", "Evao Voyages", "61 av Frères Lumière  69000 Lyon"],
-          // ["Lyon", 43.500, -1.467, "sucursale", "Ailleurs Voyages", "43 cours Gambetta  69000 Lyon"],
+          ["Bayonne", 43.4933379, -1.475099, "sucursale", "Aéroport Lyon-Saint Exupéry", "69125 Colombier-Saugnieu"],
+          ["Monaco", 43.7384402, 7.4242474, "sucursale", "Linea Voyages", "64 rue Sala 69000 Lyon"],
+          ["Marseille", 43.2961743, 5.3699525, "sucursale", "Evao Voyages", "61 av Frères Lumière  69000 Lyon"],
+          ["Roubaix", 50.6915893, 3.1741734, "sucursale", "Ailleurs Voyages", "43 cours Gambetta  69000 Lyon"],
         ];
 
     		var lat = 43.7031;
@@ -51,6 +101,144 @@
     			center: new google.maps.LatLng(lat, lng),
     			zoom: 5,
           // Snazzy maps custom color
+          styles: [
+              {
+                  "featureType": "all",
+                  "elementType": "geometry",
+                  "stylers": [
+                      {
+                          "color": "#202c3e"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "all",
+                  "elementType": "labels.text.fill",
+                  "stylers": [
+                      {
+                          "gamma": 0.01
+                      },
+                      {
+                          "lightness": 20
+                      },
+                      {
+                          "weight": "1.39"
+                      },
+                      {
+                          "color": "#ffffff"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "all",
+                  "elementType": "labels.text.stroke",
+                  "stylers": [
+                      {
+                          "weight": "0.96"
+                      },
+                      {
+                          "saturation": "9"
+                      },
+                      {
+                          "visibility": "on"
+                      },
+                      {
+                          "color": "#000000"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "all",
+                  "elementType": "labels.icon",
+                  "stylers": [
+                      {
+                          "visibility": "off"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "landscape",
+                  "elementType": "geometry",
+                  "stylers": [
+                      {
+                          "lightness": 30
+                      },
+                      {
+                          "saturation": "9"
+                      },
+                      {
+                          "color": "#29446b"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "poi",
+                  "elementType": "geometry",
+                  "stylers": [
+                      {
+                          "saturation": 20
+                      }
+                  ]
+              },
+              {
+                  "featureType": "poi.park",
+                  "elementType": "geometry",
+                  "stylers": [
+                      {
+                          "lightness": 20
+                      },
+                      {
+                          "saturation": -20
+                      }
+                  ]
+              },
+              {
+                  "featureType": "road",
+                  "elementType": "geometry",
+                  "stylers": [
+                      {
+                          "lightness": 10
+                      },
+                      {
+                          "saturation": -30
+                      }
+                  ]
+              },
+              {
+                  "featureType": "road",
+                  "elementType": "geometry.fill",
+                  "stylers": [
+                      {
+                          "color": "#193a55"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "road",
+                  "elementType": "geometry.stroke",
+                  "stylers": [
+                      {
+                          "saturation": 25
+                      },
+                      {
+                          "lightness": 25
+                      },
+                      {
+                          "weight": "0.01"
+                      }
+                  ]
+              },
+              {
+                  "featureType": "water",
+                  "elementType": "all",
+                  "stylers": [
+                      {
+                          "lightness": -20
+                      }
+                  ]
+              }
+            ],
+
           });
 
           setMarkers(map, cities);

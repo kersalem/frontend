@@ -140,8 +140,6 @@ z-index:999;
       background: #f2f2f2;
     }
 
-//////////////////////////////////////
-
  form {
   display: flex;
   margin: 0 auto;
@@ -187,6 +185,8 @@ img {
 
 #map {
   height: 80%;
+  display: flex;
+  justify-content: center;
   z-index:5;
 }
 
@@ -195,7 +195,7 @@ img {
   height: 20px;
   margin:0;
   padding:2px;
-  background-color: tomato;
+  background-color:  #1E7FCB;
   color:white;
   font-size: 8px;
   display: flex;
@@ -210,4 +210,17 @@ img {
 
 .gm-style .gm-style-iw-c{
   padding: 0;
+}
+
+#infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.infosContent {
+  width: 30%;
+  margin: 20px;
+  background: #1E7FCB;
+  padding: 5px;
 }
