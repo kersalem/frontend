@@ -29,12 +29,21 @@
           ["Paris", 48.852969, 2.349903],
     			["Brest", 48.383, -4.500],
     			["Quimper", 48.000, -4.100],
-    			["Bayonne", 43.500, -1.467]
+    			["Bayonne", 43.500, -1.467],
+          ["Brest",48,448, -4,4156, "sucursale", "Aéroport Brest Bretagne", "29490 Guipavas"],
+          ["Nice", 43,6597, 7,2148, "sucursale", "Aéroport Nice Côte d'Azur", "Rue Costes et Bellonte, 06206 Nice"],
+          // ["Lyon", 45,7234, -1.467, "sucursale", "Aéroport Lyon-Saint Exupéry", "69125 Colombier-Saugnieu"],
+          // ["Lyon", 43.500, -1.467, "sucursale", "Linea Voyages", "64 rue Sala 69000 Lyon"],
+          // ["Lyon", 43.500, -1.467, "sucursale", "Evao Voyages", "61 av Frères Lumière  69000 Lyon"],
+          // ["Lyon", 43.500, -1.467, "sucursale", "Ailleurs Voyages", "43 cours Gambetta  69000 Lyon"],
         ];
 
     		var lat = 43.7031;
     		var lng = 7.2661;
     		var map = null;
+        var iconBase =
+                    'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
+
 
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
@@ -59,6 +68,7 @@
                 var marker = new google.maps.Marker({
                   position: latlngset,
                   title: name,
+                  icon : iconBase + 'parking_lot_maps.png',
                   map: map,
                 });
 
