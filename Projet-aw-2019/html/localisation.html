@@ -257,11 +257,14 @@
                   position: latlngset,
                   title: name,
                   icon : iconBase + 'parking_lot_maps.png',
+                  // animation: google.maps.Animation.DROP,
                   map: map,
                 });
 
+                // marker.addListener('click', toggleBounce);
                 map.setCenter(marker.getPosition());
-                //console.log('lat = ', name);
+
+                //infowindow
                 var infowindow = new google.maps.InfoWindow();
 
                 var content = '<div id="content">'+
@@ -288,6 +291,16 @@
             }
         }
         }
+
+    //animation marker
+   //  function toggleBounce() {
+   //   if (marker.getAnimation() !== null) {
+   //     marker.setAnimation(null);
+   //   } else {
+   //     marker.setAnimation(google.maps.Animation.BOUNCE);
+   //   }
+   // }
+
   </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4KfDVFyBkAiw4WWWG-9NuGS04vghxXB4&callback=initMap"
     async defer></script>
