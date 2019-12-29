@@ -44,23 +44,44 @@
           // Snazzy maps custom color
           });
 
-          // Browse list cities
-          for(city in cities) {
-              var name = cities[city][0]
-              var latValue = cities[city][1]
-              var lngValue = cities[city][2]
-          	// Add marker
-          	var marker = new google.maps.Marker({
-          		// define position
-          		position: {lat: latValue, lng: lngValue},
-              // icon:new google.maps.MarkerImage('maps/google-marker/icon.png'),
-              title: name,
-          		// Define to which card it is added
-          		map: map,
-          	});
-          }
-          console.log('cities', cities)
-          // setMarkers(map, cities)
+          setMarkers(map, cities);
+
+          function setMarkers(map, cities) {
+
+            for (var i = 0; i < cities.length; i++) {
+
+                var name = cities[i][0]
+                var lat = cities[i][1]
+                var long = cities[i][2]
+
+                var latlngset = new google.maps.LatLng(lat, long);
+
+                var marker = new google.maps.Marker({
+                  position: latlngset,
+                  title: name,
+                  map: map,
+                });
+
+                map.setCenter(marker.getPosition());
+                //console.log('lat = ', name);
+                //var content = "TOTO: " + name + " !"
+
+                var infowindow = new google.maps.InfoWindow();
+                // google.maps.AddListener(marker, 'click', function (map, marker) {
+                //     infowindow.setContent(content)
+                //     infowindow.open(map, marker)
+                // });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                infowindow.setContent(cities[i][0]);
+                infowindow.open(map, marker);
+                }
+                })(marker, i));
+            }
+        }
+
+          //console.log('cities', cities)
         }
   </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4KfDVFyBkAiw4WWWG-9NuGS04vghxXB4&callback=initMap"
