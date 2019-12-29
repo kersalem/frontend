@@ -5,14 +5,6 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="../css/mystyle.css">
-
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-
-      /* Optional: Makes the sample page fill the window. */
-
-    </style>
   </head>
 	<nav>
 		<ul id="menu">
@@ -30,198 +22,47 @@
 			<li class="menu-item"><a href="contact.html" class="ex1">Contact</a></li>
 		</ul>
 	</nav>
-  <body>
+  <!-- <body onload="initMap()"> -->
     <div id="map"></div>
     <script>
-		var villes = {
-			"Paris":{"lat": 48.852969,"lon": 2.349903},
-			"Brest":{"lat": 48.383,"lon": -4.500},
-			"Quimper":{"lat": 48.000,"lon": -4.100},
-			"Bayonne":{"lat": 43.500,"lon": -1.467}
-		};
-		var lat = 45.1667;
-		var lon = 5.7167;
-		var map = null;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          //center: {lat: -34.397, lng: 150.644},
-				center: new google.maps.LatLng(lat, lon),
-				zoom: 5,
+    		var cities = [
+          ["Paris", 48.852969, 2.349903],
+    			["Brest", 48.383, -4.500],
+    			["Quimper", 48.000, -4.100],
+    			["Bayonne", 43.500, -1.467]
+        ];
 
-        // Snazzy maps custom color
-        styles: [
-            {
-                "featureType": "all",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "color": "#202c3e"
-                    }
-                ]
-            },
-            {
-                "featureType": "all",
-                "elementType": "labels.text.fill",
-                "stylers": [
-                    {
-                        "gamma": 0.01
-                    },
-                    {
-                        "lightness": 20
-                    },
-                    {
-                        "weight": "1.39"
-                    },
-                    {
-                        "color": "#ffffff"
-                    }
-                ]
-            },
-            {
-                "featureType": "all",
-                "elementType": "labels.text.stroke",
-                "stylers": [
-                    {
-                        "weight": "0.96"
-                    },
-                    {
-                        "saturation": "9"
-                    },
-                    {
-                        "visibility": "on"
-                    },
-                    {
-                        "color": "#000000"
-                    }
-                ]
-            },
-            {
-                "featureType": "all",
-                "elementType": "labels.icon",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "landscape",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "lightness": 30
-                    },
-                    {
-                        "saturation": "9"
-                    },
-                    {
-                        "color": "#29446b"
-                    }
-                ]
-            },
-            {
-                "featureType": "poi",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "saturation": 20
-                    }
-                ]
-            },
-            {
-                "featureType": "poi.park",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "lightness": 20
-                    },
-                    {
-                        "saturation": -20
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "lightness": 10
-                    },
-                    {
-                        "saturation": -30
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "color": "#193a55"
-                    }
-                ]
-            },
-            {
-                "featureType": "road",
-                "elementType": "geometry.stroke",
-                "stylers": [
-                    {
-                        "saturation": 25
-                    },
-                    {
-                        "lightness": 25
-                    },
-                    {
-                        "weight": "0.01"
-                    }
-                ]
-            },
-            {
-                "featureType": "water",
-                "elementType": "all",
-                "stylers": [
-                    {
-                        "lightness": -20
-                    }
-                ]
-            }
-          ],
-					// mapTypeId: google.maps.MapTypeId.ROADMAP,
-					// mapTypeControl: true,
-					// scrollwheel: false,
-					// mapTypeControlOptions: {
-					// 	style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
-					// },
-					// navigationControl: true,
-					// navigationControlOptions: {
-					// 	style: google.maps.NavigationControlStyle.ZOOM_PAN
-					// }
-        });
+    		var lat = 43.7031;
+    		var lng = 7.2661;
+    		var map = null;
 
-      // Parcourir liste villes
-      for(ville in villes) {
-      	// Ajouter un marqueur
-      	var marker = new google.maps.Marker({
-      		// Définir sa position (syntaxe json)
-      		position: {lat: villes[ville].lat, lng: villes[ville].lon},
-      		title:ville,
-          // icon:new google.maps.MarkerImage('maps/google-marker/icon.png'),
-          title: "Locronan - Rue du Prieuré",
-      		// Définir à quelle carte il est ajouté
-      		map: map
-      	});
-      }
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            // center card : Nice
+    			center: new google.maps.LatLng(lat, lng),
+    			zoom: 5,
+          // Snazzy maps custom color
+          });
 
-    var infowindow = new google.maps.InfoWindow({
-         content:"toto"
-    })
-
-    google.maps.event.addListener(marker, 'click', function(){
-      infowindow.open(map, marker);
-    });
-
-      }
-    </script>
+          // Browse list cities
+          for(city in cities) {
+              var name = cities[city][0]
+              var latValue = cities[city][1]
+              var lngValue = cities[city][2]
+          	// Add marker
+          	var marker = new google.maps.Marker({
+          		// define position
+          		position: {lat: latValue, lng: lngValue},
+              // icon:new google.maps.MarkerImage('maps/google-marker/icon.png'),
+              title: name,
+          		// Define to which card it is added
+          		map: map,
+          	});
+          }
+          console.log('cities', cities)
+          // setMarkers(map, cities)
+        }
+  </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4KfDVFyBkAiw4WWWG-9NuGS04vghxXB4&callback=initMap"
     async defer></script>
   </body>
